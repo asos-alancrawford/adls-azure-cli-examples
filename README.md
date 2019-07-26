@@ -11,10 +11,19 @@ Using Azure CLI is helpful when working with Azure Data Lake Storage to view and
 
 ## Login - AAD Account
 1. Log in using your own AAD account
-`az login`
+
+    `az login`
 
 2. Set the context of the session to the subscription containing the ADLS account you wish to view
-`az account set --subscription 'Visual Studio Enterprise'
+
+    `az account set --subscription 'Visual Studio Enterprise'`
 
 ## Login - SPN
-1. 
+1. Find the tenant and application IDs for the subscription you are accessing
+    Log in using your own credentials and switch the context to the subscription containing the ADLS account you wish to access by following the previous steps.  To see the tenant ID and app ID run:
+
+    `az ad sp list --display-name <your SPN display name> --query '[].{"id":"appId", "tenant":"appOwnerTenantId"}'`
+
+2. Log in to Azure CLI under the context of the SPN (it is assumed you have a valid client secret for the SPN)
+
+    `az login --service-principal --username <your application id> --password <your app client secret> --tenant <your tenant id>`
