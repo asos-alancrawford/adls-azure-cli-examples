@@ -27,3 +27,16 @@ Using Azure CLI is helpful when working with Azure Data Lake Storage to view and
 2. Log in to Azure CLI under the context of the SPN (it is assumed you have a valid client secret for the SPN)
 
     `az login --service-principal --username <your application id> --password <your app client secret> --tenant <your tenant id>`
+
+## List files
+1. Enter the following to return a full list of the file details at the root path within an ADLS account:
+
+    `az dls fs list --account asanierdatalakeeund001 --path /`
+
+2. List files in a specific path:
+
+    `az dls fs list --account asanierdatalakeeund001 --path /unrestricted/staging/bam/diffs/rbpdsv/bam011e/v1.0/pqtsnappy/snapshot/yy=2019/mm=06/dd=18/hh=1500`
+
+3. Use a JMES query string to return only specific fields from the resultset:
+
+    `az dls fs list --account asanierdatalakeeund001 --path /unrestricted/staging/bam/diffs/rbpdsv/bam011e/v1.0/pqtsnappy/snapshot/yy=2019/mm=06/dd=18/hh=1500 --query ---query '[].{"name":"name", "type":"type"}`
