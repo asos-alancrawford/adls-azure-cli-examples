@@ -39,4 +39,8 @@ Using Azure CLI is helpful when working with Azure Data Lake Storage to view and
 
 3. Use a JMES query string to return only specific fields from the resultset:
 
-    `az dls fs list --account asanierdatalakeeund001 --path /unrestricted/staging/bam/diffs/rbpdsv/bam011e/v1.0/pqtsnappy/snapshot/yy=2019/mm=06/dd=18/hh=1500 --query ---query '[].{"name":"name", "type":"type"}`
+    `az dls fs list --account asanierdatalakeeund001 --path /unrestricted/staging/bam/diffs/rbpdsv/bam011e/v1.0/pqtsnappy/snapshot/yy=2019/mm=06/dd=18/hh=1500 --query '[].{"name":"name", "type":"type"}'`
+
+4. Format the results as a table (default is JSON but other options are jsonc, yaml, tsv):
+
+    `az dls fs list --account asanierdatalakeeund001 --path /unrestricted/staging --output table`
