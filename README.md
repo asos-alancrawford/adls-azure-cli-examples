@@ -31,16 +31,16 @@ Using Azure CLI is helpful when working with Azure Data Lake Storage to view and
 ## List files
 1. Enter the following to return a full list of the file details at the root path within an ADLS account:
 
-    `az dls fs list --account asanierdatalakeeund001 --path /`
+    `az dls fs list --account <your adls account name> --path /`
 
 2. List files in a specific path:
 
-    `az dls fs list --account asanierdatalakeeund001 --path /unrestricted/staging/bam/diffs/rbpdsv/bam011e/v1.0/pqtsnappy/snapshot/yy=2019/mm=06/dd=18/hh=1500`
+    `az dls fs list --account <your adls account name> --path /somepath`
 
 3. Use a JMES query string to return only specific fields from the resultset:
 
-    `az dls fs list --account asanierdatalakeeund001 --path /unrestricted/staging/bam/diffs/rbpdsv/bam011e/v1.0/pqtsnappy/snapshot/yy=2019/mm=06/dd=18/hh=1500 --query '[].{"name":"name", "type":"type"}'`
+    `az dls fs list --account <your adls account name> --path /somepath --query '[].{"name":"name", "type":"type"}'`
 
 4. Format the results as a table (default is JSON but other options are jsonc, yaml, tsv):
 
-    `az dls fs list --account asanierdatalakeeund001 --path /unrestricted/staging --output table`
+    `az dls fs list --account <your adls account name> --path /somepath --output table`
